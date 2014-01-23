@@ -6,7 +6,7 @@ require "minitest/autorun"
 require "proof_of_work"
 
 describe ProofOfWork do
-  context "the lenght of the hash" do
+  context "The generated hash is valid?" do
     When(:hash) { ProofOfWork.generate("test") }
     Then { ProofOfWork.valid?(hash) == true }
   end
