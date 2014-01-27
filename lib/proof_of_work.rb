@@ -44,7 +44,10 @@ class ProofOfWork
       sha1 = OpenSSL::Digest::SHA1.new
       sha1 << stamp
 
-      sha1.hexdigest.start_with?("0" * hex_digits)
+      is_valid = sha1.hexdigest.start_with?("0" * hex_digits)
+      yield(extension) if block_given?
+
+      is_valid
     end
 
     private
