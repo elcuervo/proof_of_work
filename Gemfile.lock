@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    proof_of_work (0.1)
+    proof_of_work (0.2)
 
 GEM
   remote: http://rubygems.org/

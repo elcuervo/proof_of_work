@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "proof_of_work"
-  s.version           = "0.1"
+  s.version           = "0.2"
   s.summary           = "Hashcash algorithm"
   s.description       = "Hashcash version 1 algorithm generator and checker"
   s.authors           = ["elcuervo"]
