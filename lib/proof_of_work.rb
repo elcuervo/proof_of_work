@@ -30,13 +30,13 @@ class ProofOfWork
     end
 
     def valid?(stamp, options = {})
-      bits_claim, date, identifier, extension, rand, counter = stamp[0...2].split(":")
+      _, bits_claim, date, identifier, extension, rand, counter = stamp.split(":")
 
-      return false if options[:identifier] != identifier
-      return false if options[:bits].to_i > bits_claim.to_i
+      return false if options[:identifier] && options[:identifier] != identifier
+      return false if options[:bits] && options[:bits].to_i > bits_claim.to_i
 
-      if options[:expiration]
-        return false if date < options[:expiration].strftime("%y%m%d%H%M%S")
+      if options[:expiration_date]
+        return false if date < options[:expiration_date].strftime("%y%m%d%H%M%S")
       end
 
       hex_digits = (bits_claim.to_i/4.0).floor.to_i
